@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reset30 — Josechu Carrera</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0e0e0e;
+    --white: #f5f4f0;
+    --accent: #c8f564;
+    --muted: #888;
+    --card-bg: #161616;
+    --border: #2a2a2a;
+  }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, h2, h3, .logo { font-family: 'Syne', sans-serif; }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero {
+    padding: 5rem 2rem 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p {
+    font-size: 1.15rem;
+    color: #aaa;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .hero-price { font-size: 0.95rem; color: var(--muted); }
+  .hero-price strong { color: var(--white); font-size: 1.3rem; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0;
+  }
+  .stat {
+    background: var(--black);
+    padding: 2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+  .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+
+  section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .section-body { font-size: 1rem; color: #aaa; max-width: 580px; line-height: 1.75; font-weight: 300; }
+
+  .science-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+  .science-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .science-card .icon {
+    width: 36px; height: 36px;
+    background: #1e2d0a;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 16px;
+  }
+  .science-card h3 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+  .science-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+  .program-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .program-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+  .program-card.featured {
+    border-color: var(--accent);
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .program-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .program-card p { font-size: 0.9rem; color: #999; line-height: 1.6; }
+  .program-card ul { list-style: none; margin-top: 1rem; }
+  .program-card ul li { font-size: 0.88rem; color: #bbb; padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
+  .program-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .days-badge {
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+  .days-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+
+  .author-section {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .author-photo {
+    width: 220px;
+    height: 260px;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--border);
+  }
+  .author-name { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .author-title { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+  .author-bio { font-size: 0.95rem; color: #aaa; line-height: 1.75; font-weight: 300; }
+
+  .pricing-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 500px;
+    margin: 3rem auto 0;
+    text-align: center;
+  }
+  .pricing-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem; }
+  .pricing-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .pricing-amount sup { font-size: 2rem; vertical-align: super; }
+  .pricing-note { font-size: 0.85rem; color: var(--muted); margin: 0.5rem 0 2rem; }
+  .pricing-includes { text-align: left; margin-bottom: 2rem; list-style: none; }
+  .pricing-includes li { font-size: 0.9rem; color: #bbb; padding: 0.5rem 0; border-bottom: 1px solid var(--border); padding-left: 1.5rem; position: relative; }
+  .pricing-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .btn-buy {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 1.1rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    text-align: center;
+  }
+  .btn-buy:hover { opacity: 0.85; }
+
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    .program-block { grid-template-columns: 1fr; }
+    .program-card.featured { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    .author-section { grid-template-columns: 1fr; }
+    .author-photo { width: 100%; height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">Dong<span>ü</span>d</a>
+  <a class="nav-cta" href="#comprar">Empezar ahora</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Neurociencia · Hipnosis · Hábitos</div>
+  <h1>Reprograma tu<br>mente en <em>30 días</em></h1>
+  <p>Tu cerebro activa patrones de estrés sin que lo sepas. Reset30 usa hipnosis basada en neurociencia para cambiarlos desde dentro — con hábitos que lo hacen permanente.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#comprar">Unirme a Reset30</a>
+    <span class="hero-price">Solo <strong>22€</strong> · Acceso de por vida</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">30</div>
+    <div class="stat-label">Días de transformación</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30+</div>
+    <div class="stat-label">Audios de hipnosis</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Decisión que lo cambia todo</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-tag">El problema</div>
+  <h2 class="section-title">Tu cerebro tiene<br>sus propias reglas</h2>
+  <p class="section-body">Los estudios sobre neuroplasticidad muestran que en momentos de estrés, el cerebro activa conexiones neuronales automáticas formadas por experiencias pasadas. Esas conexiones definen cómo reaccionas, qué sientes y qué crees de ti mismo — sin que lo decidas conscientemente.</p>
+  <div class="science-grid">
+    <div class="science-card">
+      <div class="icon">⚡</div>
+      <h3>Respuesta automática</h3>
+      <p>Ante el estrés, el cerebro usa los caminos neuronales más establecidos, no los más útiles.</p>
+    </div>
+    <div class="science-card">
+      <div class="icon">🔁</div>
+      <h3>Bucles de creencia</h3>
+      <p>Las creencias limitantes se refuerzan solas cada vez que el cerebro confirma lo que ya "sabe".</p>
+    </div>
+    <div class="science-card">
+      <div class="icon">🧠</div>
+      <h3>Neuroplasticidad</h3>
+      <p>El cerebro puede crear nuevas conexiones a cualquier edad — si se trabaja de forma consistente.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-tag">El método</div>
+  <h2 class="section-title">Qué incluye Reset30</h2>
+  <div class="program-block">
+    <div class="program-card featured">
+      <div>
+        <div class="days-badge">30</div>
+        <div class="days-label">días de hipnosis diaria</div>
+      </div>
+      <div>
+        <h3>Audios de hipnosis progresiva</h3>
+        <p>Cada día un audio diseñado para trabajar una creencia específica. Van de lo más profundo a la acción concreta.</p>
+        <ul>
+          <li>Un audio nuevo cada día</li>
+          <li>Entre 10 y 25 minutos</li>
+          <li>Escúchalos cuando quieras</li>
+          <li>Acceso para siempre</li>
+        </ul>
+      </div>
+    </div>
+    <div class="program-card">
+      <div class="icon" style="width:36px;height:36px;background:#1a1a0a;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:16px;">🌱</div>
+      <h3>Reto de hábitos saludables</h3>
+      <p>Hábitos diarios simples que anclan los cambios mentales en el cuerpo y en la rutina.</p>
+      <ul>
+        <li>Hábitos de movimiento</li>
+        <li>Alimentación consciente</li>
+        <li>Rutina de mañana y noche</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="icon" style="width:36px;height:36px;background:#0a1a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:16px;">🗺️</div>
+      <h3>Hoja de ruta del reto</h3>
+      <p>Una guía clara de qué hacer cada día para que nunca te quedes sin saber qué toca.</p>
+      <ul>
+        <li>Plan semana a semana</li>
+        <li>Checklist diaria</li>
+        <li>Sin complicaciones</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="author-section">
+  <img class="author-photo" src="foto.jpg" alt="Josechu Carrera" />
+  <div>
+    <div class="author-title">Creador del programa</div>
+    <div class="author-name">Josechu Carrera</div>
+    <p class="author-bio">Yo también estuve ahí. Años respondiendo desde el estrés, con creencias que no me ayudaban a crecer. Cuando descubrí cómo combinar la hipnosis con hábitos concretos, algo cambió de verdad — no de golpe, sino poco a poco, cada día. Reset30 es lo que me hubiera gustado tener desde el principio.</p>
+  </div>
+</div>
+
+<section id="comprar">
+  <div class="section-tag">Únete</div>
+  <h2 class="section-title" style="text-align:center;">Todo por una<br>única vez</h2>
+  <div class="pricing-box">
+    <div class="pricing-label">Precio de lanzamiento</div>
+    <div class="pricing-amount"><sup>€</sup>22</div>
+    <div class="pricing-note">Pago único · Sin suscripción · Tuyo para siempre</div>
+    <ul class="pricing-includes">
+      <li>30 audios de hipnosis (uno por día)</li>
+      <li>Reto de hábitos saludables completo</li>
+      <li>Hoja de ruta del programa</li>
+      <li>Acceso de por vida y actualizaciones</li>
+    </ul>
+    <a class="btn-buy" href="ENLACE_GUMROAD_AQUI">Quiero empezar mi Reset30</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:0.5rem;">Dong<span style="color:#c8f564">ü</span>d</div>
+  <p>Reset30 · Un programa de Josechu Carrera</p>
+</footer>
+
+</body>
+</html>
